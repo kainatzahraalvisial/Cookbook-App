@@ -1,9 +1,16 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'categories_page.dart';
 import 'recipe_listpage.dart';
 import 'recipe_detailpage.dart';
 
 void main() {
+  if (!kIsWeb) {
+    // Initialize for desktop or mobile
+    sqfliteFfiInit();
+    databaseFactory = databaseFactoryFfi;
+  }
   runApp(const MyApp());
 }
 
