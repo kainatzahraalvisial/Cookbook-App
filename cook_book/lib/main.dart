@@ -1,6 +1,5 @@
 import 'package:cook_book/mainpage.dart';
 import 'package:flutter/material.dart';
-import 'mainpage.dart';
 
 void main() {
   runApp(const CookPalApp());

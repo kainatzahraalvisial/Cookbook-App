@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'recipe_listpage.dart';
 
 class CategoryPage extends StatelessWidget {
   const CategoryPage({super.key});
@@ -51,7 +52,7 @@ class CategoryPage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        RecipeListPage(category: category['name']),
+                        RecipeListPage(category: category['name']!),
                   ),
                 );
               },
@@ -101,43 +102,6 @@ class CategoryPage extends StatelessWidget {
               ),
             );
           },
-        ),
-      ),
-    );
-  }
-}
-
-class RecipeListPage extends StatelessWidget {
-  final String? category;
-
-  const RecipeListPage({super.key, this.category});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF12372A),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Color(0xfffafada)),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        title: Text(
-          '$category Recipes',
-          style: const TextStyle(
-            color: Color(0XFFFAFADA),
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        centerTitle: true,
-        elevation: 0,
-      ),
-      body: Center(
-        child: Text(
-          'List of $category recipes will appear here.',
-          style: const TextStyle(fontSize: 18, color: Colors.black),
         ),
       ),
     );
